@@ -48,8 +48,6 @@ module BillysBilling
     end 
   end
   
-
-  
   def self.auth(username = @@api_key)
     {:username => username, :password => ""}
   end
