@@ -1,0 +1,17 @@
+module BillysBilling
+  module Payment
+    
+    def self.list
+      BillysBilling.response("/payments", :get)
+    end
+    
+    def self.get(id)
+      BillysBilling.response("/payments/#{id}")
+    end
+    
+    def self.create(params)
+      BillysBilling.response("/invoice", :post, params )
+    end
+    
+  end
+end
