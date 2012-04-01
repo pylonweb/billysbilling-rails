@@ -36,7 +36,7 @@ module BillysBilling
   end
   
   def self.response(url = "/", method = :get)
-    self.eval(method)(url).parsed_response
+    self.get(url).parsed_response
   end
   
 
