@@ -16,6 +16,9 @@ Gem::Specification.new do |gem|
   gem.version       = BillysBilling::VERSION
   
   gem.add_development_dependency "rspec"
+  gem.add_development_dependency "guard-rspec"
+  gem.add_development_dependency "rb-fsevent"
+  gem.add_development_dependency "growl"
   
   gem.add_dependency "httparty"
 end
