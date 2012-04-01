@@ -1,3 +1,6 @@
+require "billys_billing/invoice/attachment"
+require "billys_billing/invoice/line"
+
 module BillysBilling
   module Invoice
     

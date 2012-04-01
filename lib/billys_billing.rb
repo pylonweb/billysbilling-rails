@@ -1,7 +1,13 @@
 require "billys_billing/version"
+
+require "billys_billing/account"
+require "billys_billing/contact"
 require "billys_billing/invoice"
 require "billys_billing/organization"
-require "billys_billing/invoice"
+require "billys_billing/payment"
+require "billys_billing/product"
+require "billys_billing/vat_model"
+
 require "httparty"
 
 module BillysBilling
