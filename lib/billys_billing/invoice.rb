@@ -2,7 +2,6 @@ module BillysBilling
   module Invoice
     
     def self.list(contact_id = nil)
-      query = "?contactId=#{contact_id}" if contact_id
       BillysBilling.response("/invoices", :get, { :contactId => contact_id })
     end
     
