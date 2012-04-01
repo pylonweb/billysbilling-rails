@@ -1,5 +1,7 @@
 require "billys_billing/version"
 require "billys_billing/invoice"
+require "billys_billing/organization"
+require "billys_billing/invoice"
 require "httparty"
 
 module BillysBilling

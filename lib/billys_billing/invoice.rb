@@ -6,19 +6,19 @@ module BillysBilling
     end
     
     def self.get(id)
-      BillysBilling.response("/invoice/#{id}")
+      BillysBilling.response("/invoices/#{id}")
     end
     
     def self.create(params)
-      BillysBilling.response("/invoice", :post, params )
+      BillysBilling.response("/invoices", :post, params )
     end
     
     def self.update(id, params)
-      BillysBilling.response("/invoice/#{id}", :put, params )
+      BillysBilling.response("/invoices/#{id}", :put, params )
     end
     
     def self.delete(id)
-      BillysBilling.response("/invoice/#{id}", :delete )
+      BillysBilling.response("/invoices/#{id}", :delete )
     end
     
   end

@@ -10,7 +10,7 @@ module BillysBilling
     end
     
     def self.create(params)
-      BillysBilling.response("/invoice", :post, params )
+      BillysBilling.response("/payments", :post, params )
     end
     
   end
