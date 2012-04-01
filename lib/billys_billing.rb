@@ -14,7 +14,7 @@ module BillysBilling
   def self.api_key=(api_key)
     @@api_key = api_key
     basic_auth @@api_key, ""
-    puts response["success"]
+    response["success"]
   end
   
   def self.api_key
@@ -35,9 +35,11 @@ module BillysBilling
     yield self
   end
   
-  def self.response(url = "/")
-    self.get(url).parsed_response
+  def self.response(url = "/", method = :get)
+    self.eval(method)(url).parsed_response
   end
+  
+
   
   def self.auth(username = @@api_key)
     {:username => username, :password => ""}

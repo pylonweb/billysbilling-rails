@@ -5,6 +5,6 @@ describe BillysBilling::Invoice do
     
     BillysBilling.api_key = "OC9HNHdg3d5HF8cvTYMgtBoi53igPMuC"
     # 
-    BillysBilling::Invoice.list
+    BillysBilling::Invoice.list("1172167-iYZ2zDSyM3ib")
   end
 end
