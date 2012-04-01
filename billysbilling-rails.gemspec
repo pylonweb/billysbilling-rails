@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/billysbilling-rails/version', __FILE__)
+require File.expand_path('../lib/billys_billing/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Johan Frølich"]
@@ -13,5 +13,9 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "billysbilling-rails"
   gem.require_paths = ["lib"]
-  gem.version       = Billysbilling::Rails::VERSION
+  gem.version       = BillysBilling::VERSION
+  
+  gem.add_development_dependency "rspec"
+  
+  gem.add_dependency "httparty"
 end
