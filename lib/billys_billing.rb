@@ -35,8 +35,17 @@ module BillysBilling
     yield self
   end
   
-  def self.response(url = "/", method = :get)
-    self.get(url).parsed_response
+  def self.response(url = "/", method = :get, query = nil)
+    case method
+    when :get
+      self.get(url, :query => query).parsed_response
+    when :post
+      self.post(url, :query => query).parsed_response
+    when :delete
+      self.delete(url, :query => query).parsed_response
+    when :put
+      self.put(url, :query => query).parsed_response
+    end 
   end
   
 

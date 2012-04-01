@@ -10,5 +10,9 @@ module BillysBilling
       BillysBilling.response("/invoice/#{id}")
     end
     
+    def self.create(id)
+      BillysBilling.response("/invoice/#{id}", :post)
+    end
+    
   end
 end
