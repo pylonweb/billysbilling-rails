@@ -1,28 +1,20 @@
-require "billys_billing/invoice/attachment"
-require "billys_billing/invoice/line"
+require 'billys_billing/base'
 
 module BillysBilling
-  module Invoice
-    
-    def self.list(contact_id = nil)
-      BillysBilling.response("/invoices", :get, { :contactId => contact_id })
-    end
-    
-    def self.get(id)
-      BillysBilling.response("/invoices/#{id}")
-    end
-    
-    def self.create(params)
-      BillysBilling.response("/invoices", :post, params )
-    end
-    
-    def self.update(id, params)
-      BillysBilling.response("/invoices/#{id}", :put, params )
-    end
-    
-    def self.delete(id)
-      BillysBilling.response("/invoices/#{id}", :delete )
-    end
-    
+  class Invoice < BillysBilling::Base
+    require "billys_billing/association"
+    include BillysBilling::Association
+    lazy_attr_reader  :id, :type, :createdTime, :approvedTime, :invoiceNo, :entryDate, 
+                      :dueDate, :state, :amount, :vat, :exchangeRate, :balance, :isPaid,
+                      :contactMessage, :printUrl, :url
+
+    has_one :contact
+    has_one :attContactPerson, :class_name => "contact"
+    has_one :currency
+  
+    has_many :lines
+    has_many :payments
+    has_many :attachments
+
   end
 end
