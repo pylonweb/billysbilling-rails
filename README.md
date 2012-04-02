@@ -1,6 +1,7 @@
-# Billysbilling::Rails
+# billysbilling-rails
 
-TODO: Write a gem description
+A Ruby wrapper for the [Billys Billing API](https://dev.billysbilling.dk/api)
+
 
 ## Installation
 
@@ -8,17 +9,43 @@ Add this line to your application's Gemfile:
 
     gem 'billysbilling-rails'
 
-And then execute:
-
-    $ bundle
 
 Or install it yourself as:
 
     $ gem install billysbilling-rails
+   
+## Configuration
 
-## Usage
+Simply supply your Billys Billing API key in an initializer
 
-TODO: Write usage instructions here
+    BillysBilling.configuration do |config|
+    	config.api_key = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    end
+    
+Now you can fetch data from Billys Billing by querying the BillysBilling class directly
+
+	BillysBilling.invoices # Returns all invoices
+	
+	BillysBilling.invoice({invoiceID}) # Returns the invoice with the specified id.
+	
+Or you can instantiate your own instance of the class with the API_KEY set automatically
+
+	client = BillysBilling.new
+	
+\- **OR** -
+
+
+If you for some reason need multiple instances of the client and do not want to have a default API_KEY you can specify the key when instantiating:
+
+	client1 = BillysBilling.new(:api_key => "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+	client2 = BillysBilling.new(:api_key => "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY")
+	
+
+
+
+## Usage Examples
+
+Get all invoices
 
 ## Contributing
 
