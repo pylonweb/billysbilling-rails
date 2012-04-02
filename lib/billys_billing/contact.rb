@@ -1,27 +1,21 @@
-require "billys_billing/contact/person"
-
-module BillysBilling
-  module Contact
-    
-    def self.list(query = nil)
-      puts BillysBilling.response("/contacts", :get, { :q => query })
-    end
-    
-    def self.get(id)
-      BillysBilling.response("/contacts/#{id}")
-    end
-    
-    def self.create(params)
-      BillysBilling.response("/contacts", :post, params )
-    end
-    
-    def self.update(id, params)
-      BillysBilling.response("/contacts/#{id}", :put, params )
-    end
-    
-    def self.delete(id)
-      BillysBilling.response("/contacts/#{id}", :delete )
-    end
-    
-  end
-end
+# require 'billys_billing/base'
+# 
+# module BillysBilling
+#   class Contact < Twitter::Base
+#     lazy_attr_reader :name, :size, :slug
+# 
+#     # @param other [Twiter::Suggestion]
+#     # @return [Boolean]
+#     def ==(other)
+#       super || (other.class == self.class && other.slug == self.slug)
+#     end
+# 
+#     # @return [Array<Twitter::User>]
+#     def users
+#       @users = Array(@attrs['users']).map do |user|
+#         Twitter::User.new(user)
+#       end
+#     end
+# 
+#   end
+# end
