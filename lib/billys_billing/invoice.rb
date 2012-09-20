@@ -1,16 +1,12 @@
-require 'billys_billing/base'
-
 module BillysBilling
   class Invoice < BillysBilling::Base
-    require "billys_billing/association"
-    include BillysBilling::Association
-    lazy_attr_reader  :id, :type, :createdTime, :approvedTime, :invoiceNo, :entryDate, 
-                      :dueDate, :state, :amount, :vat, :exchangeRate, :balance, :isPaid,
-                      :contactMessage, :printUrl, :url
+    attr_accessor :id, :type, :created_time, :approved_time, :invoice_no, :entry_date, 
+                  :due_date, :state, :amount, :vat, :exchange_rate, :balance, :is_paid,
+                  :contact_message, :print_url, :url, :success,
+                  :currency
 
     has_one :contact
-    has_one :attContactPerson, :class_name => "contact"
-    has_one :currency
+    has_one :att_contact_person, :class_name => "contact"
   
     has_many :lines
     has_many :payments

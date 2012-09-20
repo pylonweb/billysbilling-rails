@@ -1,21 +1,10 @@
-# require 'billys_billing/base'
-# 
-# module BillysBilling
-#   class Contact < Twitter::Base
-#     lazy_attr_reader :name, :size, :slug
-# 
-#     # @param other [Twiter::Suggestion]
-#     # @return [Boolean]
-#     def ==(other)
-#       super || (other.class == self.class && other.slug == self.slug)
-#     end
-# 
-#     # @return [Array<Twitter::User>]
-#     def users
-#       @users = Array(@attrs['users']).map do |user|
-#         Twitter::User.new(user)
-#       end
-#     end
-# 
-#   end
-# end
+module BillysBilling
+  class Contact < BillysBilling::Base
+    attr_accessor :id, :contact_no, :created_time, :name, 
+                  :street, :zipcode, :city, :country, :state, :phone, :fax, 
+                  :currency, :vat_no, :ean, :locale, :url, :persons, :success
+                  
+    has_many :persons
+
+  end
+end

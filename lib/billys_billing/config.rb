@@ -5,21 +5,25 @@ module BillysBilling
   module Config
     
     VALID_QUERIES = [
-      "contacts",
-      "invoices",
+      "contact",
+      "invoice",
       "organization",
-      "payments",
-      "products",
-      "vat_models",
-      "accounts"
+      "payment",
+      "product",
+      "vat_model",
+      "account"
     ]
     
     VALID_ACTIONS = [
       "show",
+      # "get",
       "index",
+      "list",
       "create",
+      "add",
       "update",
-      "destroy"
+      "destroy",
+      "delete"
     ]
 
     # The api key if none is set

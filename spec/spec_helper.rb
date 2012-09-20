@@ -1,6 +1,8 @@
 require 'billys_billing'
-#Dir[Dir.pwd.join("/spec/support/**/*.rb")].each {|f| require f}
-require "#{Dir.pwd}/spec/support/invoice_macros"
+require 'webmock/rspec'
+require 'vcr'
+
+Dir["#{Dir.pwd}/spec/support/**/*.rb"].each {|file| require file }
 RSpec.configure do |config|
   
   config.include InvoiceMacros
@@ -14,4 +16,10 @@ RSpec.configure do |config|
     end
     
   end
+end
+
+#VCR config
+VCR.config do |c|
+  c.cassette_library_dir = 'spec/fixtures/dish_cassettes'
+  c.stub_with :webmock
 end

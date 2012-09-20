@@ -1,13 +1,7 @@
 module BillysBilling
-  module Account
-    
-    def self.list(query = nil)
-      BillysBilling.response("/accounts", :get, query )
-    end
-    
-    def self.get(id)
-      BillysBilling.response("/accounts/#{id}")
-    end
-    
+  class Account < BillysBilling::Base
+    attr_accessor :id, :account_number, :name, :description, :account_type, 
+                  :system_role, :is_payment_enabled, :url, :success
+
   end
 end

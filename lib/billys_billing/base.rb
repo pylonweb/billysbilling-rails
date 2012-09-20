@@ -1,36 +1,11 @@
-
+require "billys_billing/association"
 
 module BillysBilling
   class Base
-    
-    require "billys_billing/association"
-    include BillysBilling::Association
+    extend BillysBilling::Association 
     
     attr_accessor :attrs
     alias :to_hash :attrs
-    
-    # Specifie a has many association
-    def self.has_one(name, options={})
-      class_eval do
-        define_method name do
-          #Twitter.const_get(type.camelize.to_sym)
-          attribute = eval("BillysBilling::#{class_name}.new(#{attribute})") unless @attrs[name].nil?
-          instance_variable_set("@#{name}".to_sym, attribute)
-        end
-      end
-    end
-    
-    def self.has_many(name, options={})
-      class_eval do
-        define_method name do
-          attrs = Array(@attrs[name]).map do |attribute|
-            class_name = options[:class_name].camelize || name.camelize
-            eval("BillysBilling::#{class_name}.new(#{attribute})")
-          end
-          instance_variable_set("@#{name}".to_sym, attrs)
-        end
-      end
-    end
 
     # Define methods that retrieve the value from an initialized instance variable Hash, using the attribute as a key
     #
@@ -53,7 +28,10 @@ module BillysBilling
     # @param attrs [Hash]
     # @return [Twitter::Base]
     def initialize(attrs={})
-      @attrs = attrs.dup
+      attrs.delete_if{|k,v| v.nil?}.each do |key, value|
+        self.send("#{key}=".to_sym, value)
+        # instance_variable_set("@#{key}", value)
+      end
     end
 
     # Initializes a new Base object
@@ -67,3 +45,12 @@ module BillysBilling
 
   end
 end
+
+# autoload :Account,"billys_billing/account"
+# autoload :Contact, "billys_billing/contact"
+# autoload :Invoice, "billys_billing/invoice"
+# autoload :Organization, "billys_billing/organization"
+# autoload :Payment, "billys_billing/payment"
+# autoload :Product, "billys_billing/product"
+# autoload :Vat_model, "billys_billing/vat_model"
+# autoload :Line, "billys_billing/line"

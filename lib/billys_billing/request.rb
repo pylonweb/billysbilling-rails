@@ -12,6 +12,7 @@ module BillysBilling
 
     # Perform an HTTP GET request
     def get(path, params={}, options={})
+      puts "PATH: #{path}\nPARAMS: #{params}\nOPTIONS: #{options}"
       request(:get, path, params, options)
     end
 
@@ -42,7 +43,7 @@ module BillysBilling
       else
       end
 
-      options[:raw] ? response : response.parsed_response
+      options[:raw] ? response : response.parsed_response.rubyify_keys!
     end
 
   end
