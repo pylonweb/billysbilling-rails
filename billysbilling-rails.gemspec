@@ -4,8 +4,8 @@ require File.expand_path('../lib/billys_billing/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Johan Frølich"]
   gem.email         = ["johanfrolich@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = "A API for the danish accounting program, Billys Billing"
+  gem.summary       = "A API for the danish accounting program, Billys Billing"
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)

@@ -63,7 +63,6 @@ module BillysBilling
       self.endpoint           = DEFAULT_ENDPOINT
       self.valid_actions      = VALID_ACTIONS
       self.valid_queries      = VALID_QUERIES
-      self
     end
 
   end
