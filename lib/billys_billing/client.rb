@@ -47,28 +47,36 @@ module BillysBilling
     
     def show(class_name, id, options={})
       params = get("/#{class_name.camelize(:lower)}/#{id}", options)
-      puts "-------------INVOICE START-------------\n#{params.to_yaml}\n-------------INVOICE END-------------"
       get_class_instance(class_name, params)
     end
     # alias_method :get, :show
     
     def index(class_name, params={}, options={})
       params = {q: params} if params.is_a?(String)
-      get("/#{class_name.camelize(:lower)}", params, options)
+      
+      list = []
+      get("/#{class_name.camelize(:lower)}", params, options).each do |unit|
+        list << get_class_instance(class_name, unit)
+      end
+      return list
     end
     alias_method :list, :index
     
     def create(class_name, params, options={})
       post("/#{class_name.camelize(:lower)}", params, options)
+      get_class_instance(class_name, params)
     end
     alias_method :add, :create
     
     def update(class_name, id, options={})
       put("/#{class_name.camelize(:lower)}/#{id}", params, options)
+      show(class_name, id, options)
     end
     
     def destroy(class_name, id, options={})
+      item = show(class_name, id, options)
       delete("/#{class_name.camelize(:lower)}/#{id}", options)
+      return item
     end
     alias_method :delete, :destroy
     

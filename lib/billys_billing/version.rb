@@ -2,7 +2,7 @@ module BillysBilling
   class Version #:nodoc:
     @major = 1
     @minor = 0
-    @tiny  = 0
+    @tiny  = 1
     @build = nil
 
     class << self

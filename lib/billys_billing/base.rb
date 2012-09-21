@@ -45,12 +45,3 @@ module BillysBilling
 
   end
 end
-
-# autoload :Account,"billys_billing/account"
-# autoload :Contact, "billys_billing/contact"
-# autoload :Invoice, "billys_billing/invoice"
-# autoload :Organization, "billys_billing/organization"
-# autoload :Payment, "billys_billing/payment"
-# autoload :Product, "billys_billing/product"
-# autoload :Vat_model, "billys_billing/vat_model"
-# autoload :Line, "billys_billing/line"
