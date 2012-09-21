@@ -68,7 +68,7 @@ module BillysBilling
     end
     alias_method :add, :create
     
-    def update(class_name, id, options={})
+    def update(class_name, id, params, options={})
       put("/#{class_name.camelize(:lower)}/#{id}", params, options)
       show(class_name, id, options)
     end
