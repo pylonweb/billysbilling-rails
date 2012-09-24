@@ -62,8 +62,10 @@ product_params = {
 }
 
 product = client.create_product(product_params)
+
 product.description
-#=> "Very exciting story."
+
+ #=> "Very exciting story."
 
 
 ## Contributing
