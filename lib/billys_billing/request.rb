@@ -29,7 +29,6 @@ module BillysBilling
 
     # Perform an HTTP request
     def request(method, path, params, options)
-      puts "METHOD: #{method}\nPATH: #{path}\nPARAMS: #{params.billyfy_keys!}\nOPTIONS: #{options}"
       params = params.billyfy_keys!
       auth = {username: api_key, password: ""}
       case method.to_sym

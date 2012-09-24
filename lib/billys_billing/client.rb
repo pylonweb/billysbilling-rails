@@ -29,7 +29,6 @@ module BillysBilling
     def method_missing(method, *arguments, &block)
       # the first argument is a Symbol, so you need to_s it if you want to pattern match
       if method.to_s =~ /^(#{valid_actions.join("|")})_(#{valid_queries.join("s?|")})(!?)/ && respond_to?($1)
-        puts "METHOD: #{$1}#{$3}\nARGUMENTS: #{[$2.pluralize.camelize(:lower)].concat(arguments)}"
         send("#{$1}#{$3}", *[$2.pluralize].concat(arguments), &block)
       else
         super
@@ -72,7 +71,6 @@ module BillysBilling
     
     def show(class_name, id, options={})
       response = get_request("/#{class_name}/#{id}", options)
-      puts "SHOW RESPONSE #{response.to_yaml}"
       if response.success?
         get_class_instance(class_name, response)
       else
@@ -101,7 +99,6 @@ module BillysBilling
     
     def create(class_name, params, options={})
       response = post_request("/#{class_name}", params, options)
-      puts "CREATE RESPONSE #{response.to_yaml} - #{response.success?}"
       if response.success?
         show(class_name, response["id"], options)
       else
@@ -134,7 +131,6 @@ module BillysBilling
     private
       
     def get_class_instance(class_name, params)
-      puts params.to_yaml
       "BillysBilling::#{class_name.to_s.classify}".constantize.new(params)
     end
     
