@@ -1,6 +1,6 @@
 # billysbilling-rails
 
-A Ruby wrapper for the [Billys Billing API](https://dev.billysbilling.dk/api). Se also the homepage of [Billys Billing ](https://billysbilling.dk/)
+An API wrapper for the danish accounting program [Billys Billing](https://dev.billysbilling.dk/api). Se also the homepage of [Billys Billing ](https://billysbilling.dk/)
 
 READ BILLYS BILLING API TERMS BEFORE USE: https://dev.billysbilling.dk/api-terms
 
