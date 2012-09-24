@@ -2,7 +2,8 @@ module BillysBilling
   class Contact < BillysBilling::Base
     attr_accessor :id, :contact_no, :created_time, :name, 
                   :street, :zipcode, :city, :country_id, :state, :phone, :fax, 
-                  :currency, :vat_no, :ean, :locale_id, :url, :persons, :success
+                  :currency, :vat_no, :ean, :locale_id, :url, :persons, :success,
+                  :country, :locale
                   
     has_many :persons
 

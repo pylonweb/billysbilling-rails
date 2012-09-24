@@ -6,23 +6,22 @@ module BillysBilling
   module Request
     
     # Perform an HTTP DELETE request
-    def delete(path, params={}, options={})
+    def delete_request(path, params={}, options={})
       request(:delete, path, params, options)
     end
 
     # Perform an HTTP GET request
-    def get(path, params={}, options={})
-      puts "PATH: #{path}\nPARAMS: #{params}\nOPTIONS: #{options}"
+    def get_request(path, params={}, options={})
       request(:get, path, params, options)
     end
 
     # Perform an HTTP POST request
-    def post(path, params={}, options={})
+    def post_request(path, params={}, options={})
       request(:post, path, params, options)
     end
     
     # Perform an HTTP PUT request
-    def put(path, params={}, options={})
+    def put_request(path, params={}, options={})
       request(:put, path, params, options)
     end
     
@@ -30,6 +29,8 @@ module BillysBilling
 
     # Perform an HTTP request
     def request(method, path, params, options)
+      puts "METHOD: #{method}\nPATH: #{path}\nPARAMS: #{params.billyfy_keys!}\nOPTIONS: #{options}"
+      params = params.billyfy_keys!
       auth = {username: api_key, password: ""}
       case method.to_sym
       when :get
