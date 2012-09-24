@@ -43,6 +43,7 @@ If you for some reason need multiple instances of the client and do not want to 
 	
 ## Usage Examples
 
+```ruby
 client = BillysBilling.new(api_key: 'abcdefghijklmnopqrstuvxyz123456789')
 
 product_params = {
@@ -62,11 +63,9 @@ product_params = {
 }
 
 product = client.create_product(product_params)
-
 product.description
-
- #=> "Very exciting story."
-
+#=> "Very exciting story."
+```
 
 ## Contributing
 
