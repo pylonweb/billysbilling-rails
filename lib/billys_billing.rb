@@ -9,7 +9,8 @@ autoload :Line, "billys_billing/line"
 
 
 require 'hash'
-require "active_support/inflector"
+require 'string'
+require 'active_support/inflector'
 
 require 'billys_billing/base'
 
