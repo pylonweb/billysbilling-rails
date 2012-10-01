@@ -28,8 +28,8 @@ module BillysBilling
     
     def method_missing(method, *arguments, &block)
       # the first argument is a Symbol, so you need to_s it if you want to pattern match
-      if method.to_s =~ /^(#{valid_actions.join("|")})_(#{valid_queries.join("s?|")})(!?)/ && respond_to?($1)
-        send("#{$1}#{$3}", *[$2.pluralize].concat(arguments), &block)
+      if method.to_s =~ /^(#{valid_actions.join("|")})_(#{valid_queries.join("s?|")})(!?)/
+        send("#{$1}#{$3}", *[$2.pluralize.camelize(:lower)].concat(arguments), &block)
       else
         super
       end
@@ -82,7 +82,7 @@ module BillysBilling
     
     def index(class_name, params={}, options={})
       params = {q: params} if params.is_a?(String)
-      
+      puts "INDEX FOR #{class_name}"
       list = []
       response = get_request("/#{class_name}", params, options)
       if response.success?
