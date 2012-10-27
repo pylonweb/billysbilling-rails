@@ -2,7 +2,7 @@ module BillysBilling
   class Invoice < BillysBilling::Base
     attr_accessor :id, :type, :created_time, :approved_time, :invoice_no, :entry_date, 
                   :due_date, :state, :amount, :vat, :exchange_rate, :balance, :is_paid,
-                  :contact_message, :print_url, :url, :success,
+                  :contact_message, :print_url, :url, :success, :download_url
                   :currency
 
     has_one :contact
